@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A website starter page">
+  <title>senior project</title>
+  <style>
+    /* CSS: add your styles here */
+    :root {
+      color-scheme: light;
+      font-family: system-ui, sans-serif;
+      line-height: 1.5;
+      color: #17211d;
+      background: #f5f7f4;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      min-width: 320px;
+      min-height: 100vh;
+      margin: 0;
+    }
+
+    header,
+    main,
+    footer {
+      width: min(100% - 2rem, 960px);
+      margin-inline: auto;
+    }
+
+    header,
+    footer {
+      padding-block: 1.25rem;
+    }
+
+    main {
+      padding-block: 4rem;
+    }
+
+    button {
+      padding: 0.65rem 1rem;
+      border: 0;
+      border-radius: 4px;
+      color: white;
+      background: #176b54;
+      font: inherit;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #10513f;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="./">My Website</a>
+  </header>
+
+  <main>
+    <h1>Senior Counseling Website Project</h1>
+    <p>Pop up calender for scheduling appointments with counselors.</p>
+    <button id="hello-button" type="button">Schedule Appointment</button>
+    <p id="message" aria-live="polite"></p>
+  </main>
+
+  <footer>
+    <small>&copy; <span id="year"></span> MGSJS Senior Project</small>
+  </footer>
+
+  <script>
+    // JavaScript: add your behavior here
+    document.querySelector("#year").textContent = new Date().getFullYear();
+
+    document.querySelector("#hello-button").addEventListener("click", () => {
+      document.querySelector("#message").textContent = "Appointment scheduling popup will appear here.";
+    });
+  </script>
+</body>
+</html>
