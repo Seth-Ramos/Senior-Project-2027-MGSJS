@@ -1,0 +1,193 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Our Counselors | Schurr High Counseling</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #F4F2E1;
+      color: #17211d;
+    }
+
+    header {
+      background: #DFD089;
+      padding: 1rem 0;
+      border-bottom: 1px solid #77745e;
+    }
+
+    .header-content {
+      width: min(100% - 3rem, 1060px);
+      margin: auto;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .site-logo {
+      width: 100px;
+      height: auto;
+    }
+
+    .header-text {
+      flex: 1;
+    }
+
+    .header-text h1 {
+      font-size: 1.4rem;
+      margin: 0;
+    }
+
+    .header-text h2 {
+      font-size: 1rem;
+      margin: 0;
+    }
+
+    .nav-button {
+      display: inline-block;
+      background: #176b54;
+      color: white;
+      padding: 0.65rem 1rem;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+
+    main {
+      width: min(100% - 3rem, 1060px);
+      margin: auto;
+      padding: 3rem 0;
+    }
+
+    .page-heading {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .page-heading h1 {
+      font-size: 2.3rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .counselor-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+
+    .counselor-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 18px;
+      text-align: center;
+      border-top: 6px solid #176b54;
+    }
+
+    .counselor-card h2 {
+      color: #176b54;
+    }
+
+    .counselor-card a {
+      color: #176b54;
+    }
+
+    footer {
+      width: min(100% - 3rem, 1060px);
+      margin: auto;
+      padding: 1.5rem 0;
+    }
+
+    @media (max-width: 650px) {
+      .header-content {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .counselor-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="header-content">
+
+      <img
+        class="site-logo"
+        src="images/Counsler_logo.png"
+        alt="Schurr High Counseling logo"
+      >
+
+      <div class="header-text">
+        <h1>Schurr High Counseling</h1>
+        <h2>Student Guidance & Support Portal</h2>
+      </div>
+
+      <a href="index.html" class="nav-button">
+        Home
+      </a>
+
+    </div>
+  </header>
+
+  <main>
+
+    <section class="page-heading">
+      <h1>Meet Your Counselors</h1>
+
+      <p>
+        We're here to help you succeed throughout
+        your high school journey.
+      </p>
+    </section>
+
+    <section class="counselor-grid">
+
+      <div class="counselor-card">
+        <h2>Counselor Name</h2>
+        <p>Grade Levels / Student Group</p>
+        <p>Email: Counselor Email</p>
+      </div>
+
+      <div class="counselor-card">
+        <h2>Counselor Name</h2>
+        <p>Grade Levels / Student Group</p>
+        <p>Email: Counselor Email</p>
+      </div>
+
+      <div class="counselor-card">
+        <h2>Counselor Name</h2>
+        <p>Grade Levels / Student Group</p>
+        <p>Email: Counselor Email</p>
+      </div>
+
+      <div class="counselor-card">
+        <h2>Counselor Name</h2>
+        <p>Grade Levels / Student Group</p>
+        <p>Email: Counselor Email</p>
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer>
+    <small>
+      &copy; 2026 MGSJS Senior Project
+    </small>
+  </footer>
+
+</body>
+</html>
