@@ -6,48 +6,58 @@
   <meta name="description" content="A website starter page">
   <title>senior project</title>
   <style>
-    /* CSS: add your styles here */
-    :root {
-      color-scheme: light;
-      font-family: system-ui, sans-serif;
-      line-height: 1.5;
-      color: #17211d;
-      background: #F4F2E1;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      min-width: 320px;
-      min-height: 100vh;
-      margin: 0;
-    }
-
-header {
- padding-block: 1.25rem;
-  background-color: #DFD089;
-  color: black;
+:root {
+  font-family: Arial, sans-serif;
+  line-height: 1.5;
+  color: #17211d;
+  background: #F4F2E1;
 }
 
-.site-logo {
-  width: 150px;
-  height: auto;
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+}
+
+/* HEADER */
+header {
+  padding: 1rem 0;
+  background-color: #DFD089;
+  border-bottom: 1px solid #77745e;
 }
 
 .header-content {
-  width: min(100% - 2rem, 960px);
-  margin-inline: auto;
+  width: min(100% - 3rem, 1060px);
+  margin: auto;
   display: flex;
   align-items: center;
-  justify-content: space-between;
   gap: 1rem;
-  flex-wrap: wrap;
+}
+
+.site-logo {
+  width: 120px;
+  height: auto;
 }
 
 .header-text {
-  text-align: center;
+  flex: 1;
+  text-align: left;
+}
+
+.header-text h1 {
+  font-size: 1.4rem;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.header-text h2 {
+  font-size: 1.2rem;
+  line-height: 1.2;
+  margin: 0.2rem 0 0;
 }
 
 .header-actions {
@@ -55,40 +65,95 @@ header {
   gap: 0.5rem;
 }
 
-  
-    main,
-    footer {
-      width: min(100% - 2rem, 960px);
-      margin-inline: auto;
-    }
+/* BUTTONS */
+button {
+  padding: 0.65rem 1rem;
+  border: 0;
+  border-radius: 5px;
+  color: white;
+  background: #176b54;
+  font: inherit;
+  cursor: pointer;
+}
 
-    footer {
-      padding-block: 1.25rem;
-    }
+button:hover {
+  background: #10513f;
+}
 
-    main {
-      padding-block: 4rem;
-    }
+/* MAIN CONTENT */
+main {
+  width: min(100% - 3rem, 1060px);
+  margin: auto;
+  padding: 2rem 0;
+}
 
-    button {
-      padding: 0.65rem 1rem;
-      border: 0;
-      border-radius: 4px;
-      color: white;
-      background: #176b54;
-      font: inherit;
-      cursor: pointer;
-    }
+/* WELCOME BANNER */
+.welcome-banner {
+  background: linear-gradient(110deg, #064d20, #08751b);
+  color: white;
+  text-align: center;
+  padding: 2rem;
+  border-radius: 30px;
+  margin-bottom: 1rem;
+}
 
-    button:hover {
-      background: #10513f;
-    }
+.welcome-banner h1 {
+  font-size: 2.2rem;
+  margin: 0 0 0.5rem;
+}
+
+.welcome-banner p {
+  font-size: 1rem;
+  margin: 0;
+}
+
+/* INTRODUCTION */
+.introduction {
+  margin: 0 0 2rem;
+  color: #45483f;
+  font-size: 0.95rem;
+}
+
+/* FOOTER */
+footer {
+  width: min(100% - 3rem, 1060px);
+  margin: auto;
+  padding: 1.25rem 0;
+}
+
+/* MOBILE RESPONSIVENESS */
+@media (max-width: 700px) {
+  .header-content {
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .header-text {
+    flex: initial;
+    text-align: center;
+  }
+
+  .header-actions {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .welcome-banner h1 {
+    font-size: 1.6rem;
+  }
+}
   </style>
 </head>
 <body>
-  <header>
+<header>
   <div class="header-content">
-    <img class="site-logo" src="images/counseling_logo.png" alt="Schurr High Counseling logo">
+
+    <img
+      class="site-logo"
+      src="images/counseling_logo.png"
+      alt="Schurr High Counseling logo"
+    >
 
     <div class="header-text">
       <h1>Schurr High Counseling</h1>
@@ -96,18 +161,42 @@ header {
     </div>
 
     <div class="header-actions">
-      <button type="button">About</button>
-      <button type="button">Contact</button>
+      <button type="button">LOG IN</button>
+      <button type="button">Counseling Department</button>
     </div>
+
   </div>
 </header>
 
-  <main>
-    <h1>Senior Counseling Website Project</h1>
-    <p>Pop up calender for scheduling appointments with counselors.</p>
-    <button id="hello-button" type="button">Schedule Appointment</button>
-    <p id="message" aria-live="polite"></p>
-  </main>
+  
+
+<main>
+
+  <!-- Welcome Banner -->
+  <section class="welcome-banner">
+    <h1>We're here to help you succeed.</h1>
+
+    <p>
+      Check counselor live availability, view open drop-in hours,
+      or schedule an academic or personal support appointment.
+    </p>
+  </section>
+
+  <!-- Introduction -->
+  <section class="introduction">
+    <p>
+      Our Schurr High School counseling department has embraced a
+      shared leadership approach in developing a results-based,
+      comprehensive guidance program that reaches out to all
+      students in grades 9-12. Our main objective is to ensure that
+      all students have access to support for academic, career,
+      and personal/social development.
+    </p>
+  </section>
+
+</main>
+
+
 
   <footer>
     <small>&copy; <span id="year"></span> MGSJS Senior Project</small>
