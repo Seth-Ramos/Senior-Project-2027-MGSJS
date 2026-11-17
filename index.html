@@ -143,6 +143,112 @@ footer {
     font-size: 1.6rem;
   }
 }
+
+/* TWO COLUMN LAYOUT */
+.content-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.7fr;
+  gap: 2rem;
+  align-items: start;
+  margin-top: 2rem;
+}
+
+/* SECTION HEADINGS */
+.section-heading {
+  background-color: #DFD089;
+  color: white;
+  border-radius: 40px;
+  padding: 1rem 1.5rem;
+  text-align: center;
+  font-size: 1.4rem;
+  margin: 0 0 1rem;
+}
+
+/* REASONS TO VISIT */
+.reasons-list {
+  padding: 0 1.5rem;
+}
+
+.reasons-list h3 {
+  font-size: 1rem;
+  margin: 0.7rem 0 0;
+}
+
+.reasons-list ul {
+  padding-left: 1.2rem;
+  margin-top: 0;
+  margin-bottom: 0.7rem;
+}
+
+/* PROGRAMMING INFORMATION */
+.programming-section {
+  margin-bottom: 1.5rem;
+}
+
+.programming-section .section-heading {
+  font-size: 1rem;
+  color: #a99b43;
+  background-color: #eee4ae;
+  border-radius: 40px;
+  padding: 0.8rem 1.5rem;
+}
+
+.programming-list {
+  color: #a99b43;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem 1rem;
+  padding-left: 1.5rem;
+}
+
+/* COUNSELOR NOTE */
+.counselor-section {
+  text-align: center;
+}
+
+.counselor-heading {
+  display: inline-block;
+  background-color: #b9b96e;
+  padding: 0.7rem 1.5rem;
+}
+
+.counselor-section p {
+  text-align: left;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  margin: 0.8rem 0;
+}
+
+.counselor-section button {
+  background-color: #eee4ae;
+  color: #a99b43;
+  border-radius: 30px;
+  margin-top: 0.5rem;
+}
+
+/* SMALL SCREEN SUPPORT */
+@media (max-width: 700px) {
+  .content-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .programming-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* PROGRAMMING DOCUMENT LINKS */
+
+.programming-list a {
+  color: #a99b43;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.programming-list a:hover {
+  color: #176b54;
+  text-decoration: underline;
+}
   </style>
 </head>
 <body>
@@ -151,7 +257,7 @@ footer {
 
     <img
       class="site-logo"
-      src="images/counseling_logo.png"
+      src="images/Counsler_logo.png"
       alt="Schurr High Counseling logo"
     >
 
@@ -171,7 +277,6 @@ footer {
   
 
 <main>
-
   <!-- Welcome Banner -->
   <section class="welcome-banner">
     <h1>We're here to help you succeed.</h1>
@@ -193,6 +298,123 @@ footer {
       and personal/social development.
     </p>
   </section>
+
+
+<!-- TWO COLUMN CONTENT -->
+<section class="content-grid">
+
+  <!-- LEFT COLUMN: REASONS TO VISIT -->
+  <div class="reasons-section">
+
+    <h2 class="section-heading">Reasons to visit US:</h2>
+
+    <div class="reasons-list">
+
+      <h3>Academics</h3>
+      <ul>
+        <li>Grades</li>
+        <li>Credit Recovery</li>
+        <li>Graduation and college entrance requirements</li>
+      </ul>
+
+      <h3>Social-Emotional</h3>
+      <ul>
+        <li>Support with managing emotions</li>
+        <li>Personal concerns</li>
+        <li>Struggles and successes</li>
+        <li>Mental health support</li>
+      </ul>
+
+      <h3>College and Career</h3>
+      <ul>
+        <li>After high school guidance</li>
+        <li>AP, SAT and ACT fee waivers</li>
+        <li>Recommendation letters</li>
+      </ul>
+
+    </div>
+  </div>
+
+
+  <!-- RIGHT COLUMN -->
+  <div class="information-section">
+
+    <!-- PROGRAMMING INFORMATION -->
+    <div class="programming-section">
+
+      <h2 class="section-heading">
+        Programming Information to review before your scheduling appointment with your counselor.
+      </h2>
+
+
+<ul class="programming-list">
+
+  <li>
+    <a href="documents/math-grid-2025-2026.pdf" target="_blank">
+      SHS Math Grid 2025-2026
+    </a>
+  </li>
+
+  <li>
+    <a href="documents/programming-sheet.pdf" target="_blank">
+      Programming Sheet
+    </a>
+  </li>
+
+  <li>
+    <a href="documents/math-flow-chart.pdf" target="_blank">
+      Math Flow Chart
+    </a>
+  </li>
+
+  <li>
+    <a href="documents/science-flow-chart.pdf" target="_blank">
+      Science Flow Chart
+    </a>
+  </li>
+
+</ul>
+
+
+    </div>
+
+
+    <!-- COUNSELOR NOTE -->
+    <div class="counselor-section">
+
+      <h2 class="section-heading counselor-heading">
+        Counselor Note:
+      </h2>
+
+      <p>
+        If you need to make-up credits to fulfill graduation
+        requirements or if you're planning to apply to a 4 year
+        university and you've earned D's and F's in required courses,
+        make sure to sign-up for credit accrual ASAP.
+        <strong>THIS IS YOUR RESPONSIBILITY!</strong>
+        Credit recovery should begin in early October. Classes will
+        be offered before and after school depending on the subject
+        and teacher's schedule. Preference will be given to 12th
+        grade students, and any other openings will be
+        <strong>first come, first serve.</strong>
+      </p>
+
+      <p>
+        Please fill-out Google Form by clicking on the link below.
+        Contact your counselor if you have any questions or concerns.
+      </p>
+
+      <button type="button">
+        Credit Recovery Request
+      </button>
+
+    </div>
+
+  </div>
+
+</section>
+
+
 
 </main>
 
