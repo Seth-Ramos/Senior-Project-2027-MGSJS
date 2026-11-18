@@ -35,9 +35,22 @@
     }
 
     .site-logo {
-      width: 100px;
+      width: 120px;
       height: auto;
     }
+    .logo-link {
+   display: inline-block;
+   line-height: 0;
+    }
+
+    .logo-link img {
+  cursor: pointer;
+  transition: transform 0.2s ease;
+    }
+
+.logo-link:hover img {
+  transform: scale(1.05);
+}
 
     .header-text {
       flex: 1;
@@ -53,58 +66,208 @@
       margin: 0;
     }
 
-    .nav-button {
-      display: inline-block;
-      background: #176b54;
-      color: white;
-      padding: 0.65rem 1rem;
-      border-radius: 5px;
-      text-decoration: none;
-    }
 
-    main {
-      width: min(100% - 3rem, 1060px);
-      margin: auto;
-      padding: 3rem 0;
-    }
+/* MAIN CONTENT */
+main {
+  width: min(100% - 3rem, 1250px);
+  margin: auto;
+  padding: 2rem 0;
+}
 
-    .page-heading {
-      text-align: center;
-      margin-bottom: 2.5rem;
-    }
+/* GREEN WELCOME BANNER */
+.page-heading {
+  background: linear-gradient(110deg, #075126, #087523);
+  color: white;
+  text-align: center;
+  padding: 2rem;
+  border-radius: 22px;
+  margin-bottom: 2rem;
+}
 
-    .page-heading h1 {
-      font-size: 2.3rem;
-      margin-bottom: 0.5rem;
-    }
+.page-heading h1 {
+  font-size: 2.5rem;
+  margin: 0 0 0.5rem;
+}
 
-    .counselor-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.5rem;
-    }
+.page-heading p {
+  font-size: 1.1rem;
+  margin: 0;
+}
 
-    .counselor-card {
-      background: white;
-      padding: 2rem;
-      border-radius: 18px;
-      text-align: center;
-      border-top: 6px solid #176b54;
-    }
+/* COUNSELOR GRID */
+.counselor-grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 1.5rem;
+}
 
-    .counselor-card h2 {
-      color: #176b54;
-    }
+/* COUNSELOR CARDS */
+.counselor-card {
+  grid-column: span 2;
+  background: linear-gradient(135deg, #f0e4a8, #e9dc9c);
+  padding: 1.5rem;
+  border-radius: 25px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.10);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
 
-    .counselor-card a {
-      color: #176b54;
-    }
+.counselor-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 7px 14px rgba(0, 0, 0, 0.13);
+}
 
-    footer {
-      width: min(100% - 3rem, 1060px);
-      margin: auto;
-      padding: 1.5rem 0;
-    }
+/* CENTER THE LAST TWO CARDS */
+.counselor-card:nth-child(4) {
+  grid-column: 2 / span 2;
+}
+
+.counselor-card:nth-child(5) {
+  grid-column: 4 / span 2;
+}
+
+/* TOP PORTION OF EACH CARD */
+.counselor-top {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.2rem;
+}
+
+.counselor-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.counselor-info h2 {
+  color: #111;
+  font-size: 1.35rem;
+  margin: 0 0 0.5rem;
+}
+
+.counselor-info p {
+  margin: 0.4rem 0;
+}
+
+/* PROFILE PLACEHOLDER */
+.avatar {
+  width: 105px;
+  height: 105px;
+  min-width: 105px;
+  border: 2px solid #075126;
+  border-radius: 50%;
+  background: #f4f2e1;
+  position: relative;
+  overflow: hidden;
+}
+
+.avatar::before {
+  content: "";
+  position: absolute;
+  width: 43px;
+  height: 43px;
+  background: #075126;
+  border-radius: 50%;
+  top: 18px;
+  left: 29px;
+}
+
+.avatar::after {
+  content: "";
+  position: absolute;
+  width: 76px;
+  height: 55px;
+  background: #075126;
+  border-radius: 50% 50% 0 0;
+  bottom: -15px;
+  left: 13px;
+}
+
+/* EMAIL */
+.counselor-email {
+  display: block;
+  color: #075126;
+  font-weight: bold;
+  margin: 1rem 0;
+  overflow-wrap: anywhere;
+}
+
+/* BOOKING BUTTON */
+.book-button {
+  display: inline-block;
+  background: #d8c36d;
+  color: #111;
+  text-decoration: none;
+  padding: 0.75rem 1rem;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  transition: background 0.2s ease;
+}
+
+.book-button:hover {
+  background: #c5ae53;
+}
+
+/* DESCRIPTION */
+.counselor-description {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 850px) {
+  .counselor-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .counselor-card,
+  .counselor-card:nth-child(4),
+  .counselor-card:nth-child(5) {
+    grid-column: span 1;
+  }
+
+  .page-heading h1 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 550px) {
+  .counselor-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .counselor-card,
+  .counselor-card:nth-child(4),
+  .counselor-card:nth-child(5) {
+    grid-column: 1;
+  }
+
+  .counselor-top {
+    gap: 0.8rem;
+  }
+
+  .avatar {
+    width: 85px;
+    height: 85px;
+    min-width: 85px;
+  }
+
+  .avatar::before {
+    left: 20px;
+  }
+
+  .avatar::after {
+    left: 6px;
+  }
+}
+
+
+footer {
+  width: min(100% - 3rem, 1250px);
+  margin: 1.5rem auto;
+  text-align: center;
+  padding: 1rem;
+}
 
     @media (max-width: 650px) {
       .header-content {
@@ -124,20 +287,18 @@
   <header>
     <div class="header-content">
 
-      <img
-        class="site-logo"
-        src="images/Counsler_logo.png"
-        alt="Schurr High Counseling logo"
-      >
+      <a href="index.html" class="logo-link">
+    <img
+    class="site-logo"
+    src="images/Counsler_logo.png"
+    alt="Schurr High Counseling - Home"
+    >
+     </a>
 
       <div class="header-text">
         <h1>Schurr High Counseling</h1>
         <h2>Student Guidance & Support Portal</h2>
       </div>
-
-      <a href="index.html" class="nav-button">
-        Home
-      </a>
 
     </div>
   </header>
@@ -153,33 +314,157 @@
       </p>
     </section>
 
-    <section class="counselor-grid">
+    
+<section class="counselor-grid">
 
-      <div class="counselor-card">
-        <h2>Counselor Name</h2>
-        <p>Grade Levels / Student Group</p>
-        <p>Email: Counselor Email</p>
+  <!-- COUNSELOR 1 -->
+  <div class="counselor-card">
+
+    <div class="counselor-top">
+      <div class="avatar"></div>
+
+      <div class="counselor-info">
+        <h2>Ms. Rosas</h2>
+        <p>A - Cortez</p>
+
+       <button class="book-button"
+        type="button"
+        data-counselor="Ms. Rosas">
+    Book this counselor →
+</button>
       </div>
+    </div>
 
-      <div class="counselor-card">
-        <h2>Counselor Name</h2>
-        <p>Grade Levels / Student Group</p>
-        <p>Email: Counselor Email</p>
+    <a class="counselor-email"
+       href="mailto:rosas_lilia@montebello.k12.ca.us">
+      rosas_lilia@montebello.k12.ca.us
+    </a>
+
+    <p class="counselor-description">
+      Counselor description coming soon.
+    </p>
+
+  </div>
+
+
+  <!-- COUNSELOR 2 -->
+  <div class="counselor-card">
+
+    <div class="counselor-top">
+      <div class="avatar"></div>
+
+      <div class="counselor-info">
+        <h2>Ms. Aguilar</h2>
+        <p>Corti - Hernandez (F)</p>
+
+   <button class="book-button"
+        type="button"
+        data-counselor="Ms. Aguilar">
+    Book this counselor →
+</button>
       </div>
+    </div>
 
-      <div class="counselor-card">
-        <h2>Counselor Name</h2>
-        <p>Grade Levels / Student Group</p>
-        <p>Email: Counselor Email</p>
+    <a class="counselor-email"
+       href="mailto:aguilar_alma@montebello.k12.ca.us">
+      aguilar_alma@montebello.k12.ca.us
+    </a>
+
+    <p class="counselor-description">
+      Counselor description coming soon.
+    </p>
+
+  </div>
+
+
+  <!-- COUNSELOR 3 -->
+  <div class="counselor-card">
+
+    <div class="counselor-top">
+      <div class="avatar"></div>
+
+      <div class="counselor-info">
+        <h2>Ms. Quan</h2>
+        <p>Hernandez (G) - M</p>
+
+        <a class="book-button"
+           href="mailto:quan_denise@montebello.k12.ca.us?subject=Appointment%20Request">
+          Book this counselor →
+        </a>
       </div>
+    </div>
 
-      <div class="counselor-card">
-        <h2>Counselor Name</h2>
-        <p>Grade Levels / Student Group</p>
-        <p>Email: Counselor Email</p>
+    <a class="counselor-email"
+       href="mailto:quan_denise@montebello.k12.ca.us">
+      quan_denise@montebello.k12.ca.us
+    </a>
+
+    <p class="counselor-description">
+      Counselor description coming soon.
+    </p>
+
+  </div>
+
+
+  <!-- COUNSELOR 4 -->
+  <div class="counselor-card">
+
+    <div class="counselor-top">
+      <div class="avatar"></div>
+
+      <div class="counselor-info">
+        <h2>Ms. De La Rosa</h2>
+        <p>N - Rue</p>
+
+        <a class="book-button"
+           href="mailto:delarosa_beatrice@montebello.k12.ca.us?subject=Appointment%20Request">
+          Book this counselor →
+        </a>
       </div>
+    </div>
 
-    </section>
+    <a class="counselor-email"
+       href="mailto:delarosa_beatrice@montebello.k12.ca.us">
+      delarosa_beatrice@montebello.k12.ca.us
+    </a>
+
+    <p class="counselor-description">
+      Counselor description coming soon.
+    </p>
+
+  </div>
+
+
+  <!-- COUNSELOR 5 -->
+  <div class="counselor-card">
+
+    <div class="counselor-top">
+      <div class="avatar"></div>
+
+      <div class="counselor-info">
+        <h2>Mr. Avalos</h2>
+        <p>Ruiz - Z</p>
+
+        <a class="book-button"
+           href="mailto:avalos_adrian@montebello.k12.ca.us?subject=Appointment%20Request">
+          Book this counselor →
+        </a>
+      </div>
+    </div>
+
+    <a class="counselor-email"
+       href="mailto:avalos_adrian@montebello.k12.ca.us">
+      avalos_adrian@montebello.k12.ca.us
+    </a>
+
+    <p class="counselor-description">
+      Counselor description coming soon.
+    </p>
+
+  </div>
+
+</section>
+
 
   </main>
 
