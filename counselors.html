@@ -279,6 +279,192 @@ footer {
         grid-template-columns: 1fr;
       }
     }
+    /* Appointment Popup Background */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
+    z-index: 1000;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 25px;
+    overflow-y: auto;
+}
+
+/* Show Popup */
+.modal-overlay.active {
+    display: flex;
+}
+
+/* Main Popup */
+.appointment-modal {
+    background: #e8ddb1;
+    width: 100%;
+    max-width: 950px;
+    padding: 40px 45px;
+    border-radius: 28px;
+    position: relative;
+
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.25);
+
+    animation: popupAppear 0.25s ease;
+}
+
+@keyframes popupAppear {
+    from {
+        opacity: 0;
+        transform: translateY(15px) scale(0.97);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Close Button */
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 22px;
+    border: none;
+    background: transparent;
+    font-size: 32px;
+    cursor: pointer;
+    color: #07551e;
+}
+
+/* Heading */
+.modal-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-right: 25px;
+}
+
+.modal-heading h2 {
+    background: #07551e;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 13px;
+    font-size: 25px;
+}
+
+.modal-heading img {
+    width: 145px;
+    height: 145px;
+    object-fit: contain;
+}
+
+.selected-counselor {
+    color: #07551e;
+    font-size: 17px;
+    margin-bottom: 25px;
+}
+
+/* Two Column Form */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px 35px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.form-group label {
+    color: #07551e;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    background: transparent;
+    border: 2px solid #d9c96d;
+    border-radius: 13px;
+    padding: 14px;
+    font-family: inherit;
+    font-size: 14px;
+    color: #222;
+    outline: none;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #07551e;
+}
+
+/* Message Box */
+.message-group {
+    margin-top: 25px;
+}
+
+.message-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Submit Button */
+.submit-request {
+    margin-top: 15px;
+    background: #07551e;
+    color: white;
+    border: none;
+    border-radius: 13px;
+    padding: 13px 20px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.submit-request:hover {
+    background: #087b32;
+    transform: translateY(-2px);
+}
+
+#formMessage {
+    color: #07551e;
+    font-weight: bold;
+}
+
+/* Mobile Layout */
+@media (max-width: 650px) {
+    .appointment-modal {
+        padding: 30px 22px;
+    }
+
+    .modal-heading img {
+        width: 85px;
+        height: 85px;
+    }
+
+    .modal-heading h2 {
+        font-size: 18px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .modal-overlay {
+        align-items: flex-start;
+    }
+}
+
   </style>
 </head>
 
@@ -387,10 +573,11 @@ footer {
         <h2>Ms. Quan</h2>
         <p>Hernandez (G) - M</p>
 
-        <a class="book-button"
-           href="mailto:quan_denise@montebello.k12.ca.us?subject=Appointment%20Request">
-          Book this counselor →
-        </a>
+      <button class="book-button"
+        type="button"
+        data-counselor="Ms. Quan">
+    Book this counselor →
+</button>
       </div>
     </div>
 
@@ -416,10 +603,11 @@ footer {
         <h2>Ms. De La Rosa</h2>
         <p>N - Rue</p>
 
-        <a class="book-button"
-           href="mailto:delarosa_beatrice@montebello.k12.ca.us?subject=Appointment%20Request">
-          Book this counselor →
-        </a>
+      <button class="book-button"
+        type="button"
+        data-counselor="Ms. De La Rosa">
+    Book this counselor →
+</button>
       </div>
     </div>
 
@@ -445,10 +633,11 @@ footer {
         <h2>Mr. Avalos</h2>
         <p>Ruiz - Z</p>
 
-        <a class="book-button"
-           href="mailto:avalos_adrian@montebello.k12.ca.us?subject=Appointment%20Request">
-          Book this counselor →
-        </a>
+      <button class="book-button"
+        type="button"
+        data-counselor="Mr. Avalos">
+    Book this counselor →
+</button>
       </div>
     </div>
 
@@ -468,11 +657,165 @@ footer {
 
   </main>
 
+<!-- Appointment Request Popup -->
+<div class="modal-overlay" id="appointmentModal">
+
+    <div class="appointment-modal">
+
+        <button class="close-modal" id="closeModal"
+                type="button" aria-label="Close">
+            &times;
+        </button>
+
+        <div class="modal-heading">
+            <h2>Request Appointment</h2>
+            <img src="images/Counsler_logo.png"
+                 alt="Schurr High School Logo">
+        </div>
+
+        <p class="selected-counselor">
+            Requesting an appointment with:
+            <strong id="selectedCounselor"></strong>
+        </p>
+
+        <form id="appointmentForm">
+
+            <div class="form-grid">
+
+                <div class="form-group">
+                    <label for="studentName">Student Name *</label>
+                    <input type="text" id="studentName"
+                           placeholder="e.g. Alex Rivera" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="studentID">Student ID *</label>
+                    <input type="text" id="studentID"
+                           placeholder="e.g. 151418" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="grade">Grade Level *</label>
+                    <select id="grade" required>
+                        <option value="">Select Grade</option>
+                        <option>9th Grade</option>
+                        <option>10th Grade</option>
+                        <option>11th Grade</option>
+                        <option>12th Grade</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="topic">Topic / Category *</label>
+                    <select id="topic" required>
+                        <option value="">Select a Topic</option>
+                        <option>Academic Concerns</option>
+                        <option>Credit Recovery</option>
+                        <option>Graduation Requirements</option>
+                        <option>College and Career Planning</option>
+                        <option>Personal Concerns</option>
+                        <option>Social-Emotional Support</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <div class="form-group message-group">
+                <label for="reason">Brief Reason or Message:</label>
+                <textarea id="reason"
+                    placeholder="Leave a brief message for your counselor about the reason for your appointment."
+                    rows="4"></textarea>
+            </div>
+
+            <button type="submit" class="submit-request">
+                ➤ Submit Appointment Request
+            </button>
+
+            <p id="formMessage" aria-live="polite"></p>
+
+        </form>
+
+    </div>
+</div>
+
   <footer>
     <small>
       &copy; 2026 MGSJS Senior Project
     </small>
   </footer>
+
+<script>
+
+// Get popup elements
+const modal = document.getElementById("appointmentModal");
+const closeButton = document.getElementById("closeModal");
+const counselorDisplay = document.getElementById("selectedCounselor");
+const appointmentForm = document.getElementById("appointmentForm");
+const formMessage = document.getElementById("formMessage");
+
+// Open popup when a counselor is selected
+document.querySelectorAll(".book-button").forEach(button => {
+
+    button.addEventListener("click", function() {
+
+        const counselor = this.dataset.counselor;
+
+        counselorDisplay.textContent = counselor;
+
+        modal.classList.add("active");
+
+        document.body.style.overflow = "hidden";
+
+    });
+
+});
+
+// Close popup
+function closeAppointmentModal() {
+
+    modal.classList.remove("active");
+
+    document.body.style.overflow = "";
+
+}
+
+// Close using X
+closeButton.addEventListener("click", closeAppointmentModal);
+
+// Close by clicking outside popup
+modal.addEventListener("click", function(event) {
+
+    if (event.target === modal) {
+        closeAppointmentModal();
+    }
+
+});
+
+// Close using Escape key
+document.addEventListener("keydown", function(event) {
+
+    if (event.key === "Escape" && modal.classList.contains("active")) {
+        closeAppointmentModal();
+    }
+
+});
+
+// Prototype form submission
+appointmentForm.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    formMessage.textContent =
+        "Your request was submitted successfully! (Prototype demonstration only.)";
+
+    appointmentForm.reset();
+
+});
+
+</script>
+
+
 
 </body>
 </html>
