@@ -464,8 +464,43 @@ footer {
         align-items: flex-start;
     }
 }
+/* Appointment Title Container */
+.appointment-title {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    background-color: #07551e;
+    padding: 16px 24px;
+    border-radius: 14px;
+    width: fit-content;
+    max-width: 100%;
+    box-sizing: border-box;
+}
 
+/* Calendar Icon */
+.appointment-title img {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+    flex-shrink: 0;
+    display: block;
+}
+
+/* Appointment Heading */
+.appointment-title h2 {
+    margin: 0;
+    padding: 0;
+    color: white;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.2;
+    white-space: nowrap;
+}
   </style>
+
+
+
+
 </head>
 
 <body>
@@ -668,7 +703,10 @@ footer {
         </button>
 
         <div class="modal-heading">
-            <h2>Request Appointment</h2>
+        <div class="appointment-title">
+    <img src="images/Calendar.png" alt="Calendar">
+    <h2>Request Appointment</h2>
+</div>
             <img src="images/Counsler_logo.png"
                  alt="Schurr High School Logo">
         </div>
